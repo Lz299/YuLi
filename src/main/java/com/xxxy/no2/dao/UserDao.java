@@ -24,7 +24,7 @@ public class UserDao {
     public int add(User user){
         int add=0;
         try {
-            add= queryRunner.update("insert into users (username,password) valuse(?,?,?)",user.getUsername(),user.getPassword());
+            add= queryRunner.update("insert into users (username,password,phone) values(?,?,?)",user.getUsername(),user.getPassword(),user.getPhone());
         } catch (SQLException e) {
             e.printStackTrace();
         }

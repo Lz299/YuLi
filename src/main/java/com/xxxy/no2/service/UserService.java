@@ -16,4 +16,8 @@ public class UserService {
         return dao.add(user);
     }
 
+    public User findUserByPhone(String phone){
+        return dao.findUserByPhone(phone);
+    }
+
 }
