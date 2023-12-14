@@ -43,7 +43,7 @@ public class LikeDao {
     public  int addLike(Like like) {
         int a=0;
         try {
-            a= queryRunner.update("insert into likes(user_id,post_id) values(?,?)",like.getUser().getUsers_id(),like.getPost().getPosts_id());
+            a= queryRunner.update("insert into likes(users_id,posts_id) values(?,?)",like.getUser().getUsers_id(),like.getPost().getPosts_id());
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -1,10 +1,10 @@
 package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
-import com.xxxy.no2.model.Like;
+import com.xxxy.no2.model.Comments;
 import com.xxxy.no2.model.Posts;
 import com.xxxy.no2.model.User;
-import com.xxxy.no2.service.LikeService;
+import com.xxxy.no2.service.CommentsService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,11 +13,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "LikeServlet", value = "/LikeServlet")
-public class LikeServlet extends HttpServlet {
+@WebServlet(name = "CommentsServlet", value = "/CommentsServlet")
+public class CommentsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+    doPost(request,response);
     }
 
     @Override
@@ -27,50 +27,52 @@ public class LikeServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 
-        LikeService service=new LikeService();
-
+        CommentsService service=new CommentsService();
         String users_id = request.getParameter("users_id");
         String posts_id = request.getParameter("posts_id");
+        String comments_conntent = request.getParameter("comments_conntent");
 
-        int flag= Integer.parseInt(request.getParameter("flag"));
-
-
-        //add//添加
-        if (users_id!=null&&posts_id!=null) {
-            Like like = new Like();
+        String comments_id = request.getParameter("comments_id");
+        //增
+        if (users_id != null && posts_id != null && comments_conntent != null) {
+            Comments comments = new Comments();
             User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
             Posts posts = new Posts();
+            user.setUsers_id(Integer.parseInt(users_id));
             posts.setPosts_id(Integer.parseInt(posts_id));
-            like.setUser(user);
-            like.setPost(posts);
-            int a = service.addLike(like);
+            comments.setUsers(user);
+            comments.setPosts(posts);
+            comments.setComments_content(comments_conntent);
+            int a=service.addComments(comments);
             Gson gson = new Gson();
             String json = gson.toJson(a);
             System.out.println(json);
             out.write(json);
             out.close();
-        }else if (flag==1){
-            //查行数
-            int a = service.findAll().size();
+        }else if (comments_id!=null){
+            //删
+            int a= service.deleteComments(Integer.parseInt(comments_id));
             Gson gson = new Gson();
             String json = gson.toJson(a);
             System.out.println(json);
             out.write(json);
             out.close();
-        }else if (users_id==null&posts_id==null&flag==0){
-            //findall
-            List<Like> list=service.findAll();  //查
-            if(list!=null) {
-                Gson gson = new Gson();
-                String json = gson.toJson(list);
-                System.out.println(json);
-                out.write(json);
-                out.close();
+        }else if (users_id == null && posts_id == null &&  comments_conntent == null && comments_id ==null){
+            //查所有
+            List<Comments> list=service.getAllComments();
+            Gson gson = new Gson();
+            String json = gson.toJson(list);
+            System.out.println(json);
+            out.write(json);
+            out.close();
+
         }
 
 
-        }
+
+
+
+
 
 
     }

@@ -73,6 +73,7 @@ public class TopDao {
         int delete = 0;
         try {
             delete = queryRunner.update("delete from tops where tops_id = ?",id);
+            System.out.println(delete);
         } catch (SQLException e) {
             e.printStackTrace();
         }

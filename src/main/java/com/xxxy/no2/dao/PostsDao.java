@@ -51,6 +51,7 @@ public class PostsDao {
     public int delPost(int id){
         int a=0;
         try {
+            a=queryRunner.update("DELETE FROM likes WHERE posts_id = ?",id);
             a=queryRunner.update("DELETE FROM posts WHERE posts_id = ?",id);
         }catch (SQLException e) {
             e.printStackTrace();
@@ -61,7 +62,7 @@ public class PostsDao {
     public int updatePost(Posts posts){
         int a=0;
         try {
-            a=queryRunner.update("UPDATE posts SET users_id, posts_title = ?,posts_content = ? WHERE posts_id = ?",posts.getUsers().getUsers_id(),posts.getPosts_title(),posts.getPosts_content(),posts.getPosts_id());
+            a=queryRunner.update("UPDATE posts SET  posts_title = ?,posts_content = ? WHERE posts_id = ?",posts.getPosts_title(),posts.getPosts_content(),posts.getPosts_id());
         }catch (SQLException e) {
             e.printStackTrace();
         }
