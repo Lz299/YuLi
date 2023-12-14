@@ -22,6 +22,4 @@ public class PostsService {
     public int update(Posts posts){
         return dao.updatePost(posts);
     }
-
-
 }
