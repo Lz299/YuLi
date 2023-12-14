@@ -1,39 +1,28 @@
 package com.xxxy.no2.model;
 
 public class User {
-    private int id;
+    private int users_id;
     private String username;
     private String password;
     private String phone;
 
-    public User(int id) {
-        this.id = id;
+
+    public User() {
     }
 
-    public User(int id, String username, String password, String phone) {
-        this.id = id;
+    public User(int users_id, String username, String password, String phone) {
+        this.users_id = users_id;
         this.username = username;
         this.password = password;
         this.phone = phone;
     }
 
-    public User() {
+    public int getUsers_id() {
+        return users_id;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setUsers_id(int users_id) {
+        this.users_id = users_id;
     }
 
     public String getUsername() {
@@ -52,10 +41,19 @@ public class User {
         this.password = password;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "user_id=" + users_id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +

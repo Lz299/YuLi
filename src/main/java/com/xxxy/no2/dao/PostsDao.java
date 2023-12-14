@@ -41,7 +41,7 @@ public class PostsDao {
     public int  addPost(Posts posts){
         int a=0;
         try {
-            a=queryRunner.update("INSERT INTO posts(users_id,posts_title,posts_content) VALUES(?,?,?)",posts.getUsers().getId(),posts.getPosts_title(),posts.getPosts_content());
+            a=queryRunner.update("INSERT INTO posts(users_id,posts_title,posts_content) VALUES(?,?,?)",posts.getUsers().getUsers_id(),posts.getPosts_title(),posts.getPosts_content());
         }catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class PostsDao {
     public int updatePost(Posts posts){
         int a=0;
         try {
-            a=queryRunner.update("UPDATE posts SET users_id, posts_title = ?,posts_content = ? WHERE posts_id = ?",posts.getUsers().getId(),posts.getPosts_title(),posts.getPosts_content(),posts.getPosts_id());
+            a=queryRunner.update("UPDATE posts SET users_id, posts_title = ?,posts_content = ? WHERE posts_id = ?",posts.getUsers().getUsers_id(),posts.getPosts_title(),posts.getPosts_content(),posts.getPosts_id());
         }catch (SQLException e) {
             e.printStackTrace();
         }

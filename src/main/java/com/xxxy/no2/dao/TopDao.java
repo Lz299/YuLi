@@ -10,6 +10,7 @@ import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +24,7 @@ public class TopDao {
             insert = queryRunner.update(
                     "insert into tops(users_id,tops_name,tops_image) " +
                             "values (?,?,?)",
-                    top.getUsers_id(),
+                    top.getUsers(),
                     top.getTops_name(),
                     top.getTops_image());
         } catch (SQLException e) {
@@ -34,14 +35,14 @@ public class TopDao {
 
     //查询
     public List<Top> findAllTop() {
-        List<Top> list = null;
+        List<Top> list = new ArrayList<>();
         try {
             String sql = "select * from tops ,users  where tops.users_id= users.users_id";
             List<Map<String, Object>> list1 = queryRunner.query(sql, new MapListHandler());
             for (int i = 0; i < list1.size(); i++) {
                 Top top = CommonUtils.tobean(list1.get(i), Top.class);
                 User user = CommonUtils.tobean(list1.get(i), User.class);
-                top.setUsers_id(user);
+                top.setUsers(user);
                 list.add(top);
             }
 

@@ -45,8 +45,8 @@ public class TopServlet extends HttpServlet {
         //添加
         if (users_id != null && tops_name != null && tops_image != null){
             User user = new User();
-            user.setId(Integer.parseInt(users_id));
-            Top top = new Top(user,tops_name,tops_image);
+            user.setUsers_id(Integer.parseInt(users_id));
+            Top top = new Top(tops_name,tops_image,user);
             topService.insert(top);
             all(response);
         }

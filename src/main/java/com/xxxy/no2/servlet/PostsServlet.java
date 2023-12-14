@@ -48,7 +48,7 @@ public class PostsServlet extends HttpServlet {
 
         if(users_id!=null&&posts_title!=null&&posts_content!=null){
             User user=new User();
-            user.setId(Integer.parseInt(users_id));
+            user.setUsers_id(Integer.parseInt(users_id));
             posts.setUsers(user);
             posts.setPosts_title(posts_title);
             posts.setPosts_content(posts_content);
@@ -71,7 +71,7 @@ public class PostsServlet extends HttpServlet {
             }
         }else if (update_posts_id!=null&update_users_id!=null&update_posts_title!=null&update_posts_content!=null){
             User user=new User();
-            user.setId(Integer.parseInt(update_users_id));
+            user.setUsers_id(Integer.parseInt(update_users_id));
             posts.setUsers(user);
             posts.setPosts_title(update_posts_title);
             posts.setPosts_content(update_posts_content);
