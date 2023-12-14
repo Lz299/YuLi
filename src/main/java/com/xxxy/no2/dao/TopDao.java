@@ -24,7 +24,7 @@ public class TopDao {
             insert = queryRunner.update(
                     "insert into tops(users_id,tops_name,tops_image) " +
                             "values (?,?,?)",
-                    top.getUsers(),
+                    top.getUsers().getUsers_id(),
                     top.getTops_name(),
                     top.getTops_image());
         } catch (SQLException e) {

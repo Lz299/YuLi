@@ -40,8 +40,6 @@ public class HatServlet extends HttpServlet {
         String update_hats_name = request.getParameter("update_hats_name");
         String update_hats_image = request.getParameter("update_hats_image");
 
-
-
         //查询
         if (users_id == null && hats_name == null && hats_image == null &&hats_id == null){
             all(response);

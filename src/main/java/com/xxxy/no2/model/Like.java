@@ -1,26 +1,19 @@
 package com.xxxy.no2.model;
 
 public class Like {
-    private int id;
+    private int likes_id;
     private User user;
     private Posts post;
-
-
-    public Like(int id, User user, Posts post) {
-        this.id = id;
-        this.user = user;
-        this.post = post;
-    }
 
     public Like() {
     }
 
-    public int getId() {
-        return id;
+    public int getLikes_id() {
+        return likes_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setLikes_id(int likes_id) {
+        this.likes_id = likes_id;
     }
 
     public User getUser() {
@@ -39,11 +32,10 @@ public class Like {
         this.post = post;
     }
 
-
     @Override
     public String toString() {
         return "Like{" +
-                "id=" + id +
+                "likes_id=" + likes_id +
                 ", user=" + user +
                 ", post=" + post +
                 '}';

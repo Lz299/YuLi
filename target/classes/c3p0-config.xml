@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <c3p0-config>
     <default-config>
-        <property name="jdbcUrl">jdbc:mysql://localhost:3306/yuli
+        <property name="jdbcUrl">jdbc:mysql://123.57.29.16:3306/yuli
         </property>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="user">root</property>
-        <property name="password">133322</property>
+        <property name="user">test_user</property>
+        <property name="password">lh872355131</property>
         <property name="checkoutTimeout">30000</property>
         <property name="idleConnectionTestPeriod">30</property>
         <property name="initialPoolSize">10</property>

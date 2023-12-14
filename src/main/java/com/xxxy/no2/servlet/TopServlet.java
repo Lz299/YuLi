@@ -17,11 +17,7 @@ public class TopServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setCharacterEncoding("utf-8");
-        request.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=utf-8");
-        String tops_id = (String) request.getAttribute("tops");
-        System.out.println(tops_id);
+
         doPost(request,response);
     }
 
@@ -32,14 +28,14 @@ public class TopServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         TopService topService = new TopService();
         //添加
-        String users_id = (String) request.getAttribute("users_id");
-        String tops_name = (String) request.getAttribute("tops_name");
-        String tops_image = (String) request.getAttribute("tops_image");
+        String users_id =  request.getParameter("users_id");
+        String tops_name =  request.getParameter("tops_name");
+        String tops_image =  request.getParameter("tops_image");
         //修改获取字段
-        String tops_id = (String) request.getAttribute("tops");
+        String tops_id =  request.getParameter("tops_id");
         System.out.println(tops_id);
-        String update_tops_name = (String) request.getAttribute("update_tops_name");
-        String updata_tops_image = (String) request.getAttribute("updata_tops_image");
+        String update_tops_name =  request.getParameter("update_tops_name");
+        String updata_tops_image =  request.getParameter("updata_tops_image");
 
 
 
@@ -59,7 +55,7 @@ public class TopServlet extends HttpServlet {
 
         //修改
         if (tops_id != null && update_tops_name != null && updata_tops_image != null){
-            Top top = new Top(Integer.parseInt(tops_id),tops_name,tops_image);
+            Top top = new Top(Integer.parseInt(tops_id),update_tops_name,updata_tops_image);
             topService.updateTop(top);
             all(response);
         }
