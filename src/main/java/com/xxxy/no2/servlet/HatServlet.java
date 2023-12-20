@@ -2,10 +2,8 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Hat;
-import com.xxxy.no2.model.Shoe;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.HatService;
-import com.xxxy.no2.service.ShoeService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,9 +45,9 @@ public class HatServlet extends HttpServlet {
 
         //添加
         if (users_id != null && hats_name != null && hats_image != null){
-            User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
-            Hat hat = new Hat(hats_name,hats_image,user);
+            Users users = new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
+            Hat hat = new Hat(hats_name,hats_image, users);
             hatService.insert(hat);
             all(response);
         }

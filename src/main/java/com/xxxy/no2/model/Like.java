@@ -2,7 +2,7 @@ package com.xxxy.no2.model;
 
 public class Like {
     private int likes_id;
-    private User user;
+    private Users users;
     private Posts post;
 
     public Like() {
@@ -16,12 +16,12 @@ public class Like {
         this.likes_id = likes_id;
     }
 
-    public User getUser() {
-        return user;
+    public Users getUser() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Users users) {
+        this.users = users;
     }
 
     public Posts getPost() {
@@ -36,7 +36,7 @@ public class Like {
     public String toString() {
         return "Like{" +
                 "likes_id=" + likes_id +
-                ", user=" + user +
+                ", user=" + users +
                 ", post=" + post +
                 '}';
     }

@@ -1,10 +1,8 @@
 package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
-import com.xxxy.no2.model.Pant;
 import com.xxxy.no2.model.Shoe;
-import com.xxxy.no2.model.User;
-import com.xxxy.no2.service.PantService;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.ShoeService;
 
 import javax.servlet.ServletException;
@@ -49,9 +47,9 @@ public class ShoeServlet extends HttpServlet {
 
         //添加
         if (users_id != null && shoes_name != null && shoes_image != null){
-            User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
-            Shoe shoe = new Shoe(shoes_name,shoes_image,user);
+            Users users = new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
+            Shoe shoe = new Shoe(shoes_name,shoes_image, users);
             shoeService.insert(shoe);
             all(response);
         }

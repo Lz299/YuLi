@@ -6,7 +6,7 @@ public class Outfit  implements Serializable {
     private int outfits_id;
     private String outfits_name;
     private String outfits_image;
-    private User users;
+    private Users users;
     private Top tops;
     private Pant pants;
     private Shoe shoes;
@@ -22,7 +22,7 @@ public class Outfit  implements Serializable {
         this.outfits_image = outfits_image;
     }
 
-    public Outfit(String outfits_name, String outfits_image, User users, Top tops, Pant pants, Shoe shoes, Hat hats, Ornament ornament) {
+    public Outfit(String outfits_name, String outfits_image, Users users, Top tops, Pant pants, Shoe shoes, Hat hats, Ornament ornament) {
         this.outfits_name = outfits_name;
         this.outfits_image = outfits_image;
         this.users = users;
@@ -44,7 +44,7 @@ public class Outfit  implements Serializable {
         this.ornament = ornament;
     }
 
-    public Outfit(int outfits_id, String outfits_name, String outfits_image, User users, Top tops, Pant pants, Shoe shoes, Hat hats, Ornament ornament) {
+    public Outfit(int outfits_id, String outfits_name, String outfits_image, Users users, Top tops, Pant pants, Shoe shoes, Hat hats, Ornament ornament) {
         this.outfits_id = outfits_id;
         this.outfits_name = outfits_name;
         this.outfits_image = outfits_image;
@@ -80,11 +80,11 @@ public class Outfit  implements Serializable {
         this.outfits_image = outfits_image;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 

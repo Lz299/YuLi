@@ -2,7 +2,6 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.*;
-import com.xxxy.no2.service.HatService;
 import com.xxxy.no2.service.OutfittService;
 
 import javax.servlet.*;
@@ -56,8 +55,8 @@ public class OutfitServlet extends HttpServlet {
         //添加
         if (users_id != null && tops_id != null && pants_id != null && shoes_id != null && hats_id != null
                 && ornament_id != null && outfits_name != null && outfits_image != null) {
-            User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
+            Users users = new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
             Top top = new Top();
             top.setTops_id(Integer.parseInt(tops_id));
             Pant pant = new Pant();
@@ -68,7 +67,7 @@ public class OutfitServlet extends HttpServlet {
             hat.setHats_id(Integer.parseInt(hats_id));
             Ornament ornament = new Ornament();
             ornament.setOrnament_id(Integer.parseInt(ornament_id));
-            Outfit outfit = new Outfit(outfits_name, outfits_image, user,top,pant,shoe,hat,ornament);
+            Outfit outfit = new Outfit(outfits_name, outfits_image, users,top,pant,shoe,hat,ornament);
             outfittService.insert(outfit);
             all(response);
         }

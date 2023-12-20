@@ -2,13 +2,10 @@
 package com.xxxy.no2.dao;
 
 import com.xxxy.no2.model.Posts;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
 import com.xxxy.no2.utils.CommonUtlis;
-import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import java.sql.SQLException;
@@ -27,8 +24,8 @@ public class PostsDao {
 
             for (int i = 0; i <list1.size() ; i++) {
                 Posts posts= CommonUtlis.tobean(list1.get(i),Posts.class);
-                User user=CommonUtlis.tobean(list1.get(i),User.class);
-                posts.setUsers(user);
+                Users users =CommonUtlis.tobean(list1.get(i), Users.class);
+                posts.setUsers(users);
                 list.add(posts);
             }
 
@@ -75,8 +72,8 @@ public class PostsDao {
             List<Map<String, Object>> list1 = queryRunner.query("SELECT * FROM posts,users where posts.users_id=users.users_id WHERE users_id = ?", new MapListHandler(), userid);
             for (int i = 0; i < list1.size(); i++) {
                 Posts posts = CommonUtlis.tobean(list1.get(i), Posts.class);
-                User user = CommonUtlis.tobean(list1.get(i), User.class);
-                posts.setUsers(user);
+                Users users = CommonUtlis.tobean(list1.get(i), Users.class);
+                posts.setUsers(users);
                 list.add(posts);
             }
 

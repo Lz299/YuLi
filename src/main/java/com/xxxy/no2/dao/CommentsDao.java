@@ -1,9 +1,8 @@
 package com.xxxy.no2.dao;
 
 import com.xxxy.no2.model.Comments;
-import com.xxxy.no2.model.Like;
 import com.xxxy.no2.model.Posts;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
 import com.xxxy.no2.utils.CommonUtlis;
 import org.apache.commons.dbutils.QueryRunner;
@@ -25,8 +24,8 @@ public class CommentsDao {
             for (Map<String, Object> map : list1) {
                 Comments comments=CommonUtlis.tobean(map,Comments.class);
                 Posts posts= CommonUtlis.tobean(map,Posts.class);
-                User user=CommonUtlis.tobean(map,User.class);
-                comments.setUsers(user);
+                Users users =CommonUtlis.tobean(map, Users.class);
+                comments.setUsers(users);
                 comments.setPosts(posts);
                 list.add(comments);
             }

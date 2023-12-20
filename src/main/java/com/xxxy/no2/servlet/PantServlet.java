@@ -2,8 +2,7 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Pant;
-import com.xxxy.no2.model.Top;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.PantService;
 
 import javax.servlet.*;
@@ -46,9 +45,9 @@ public class PantServlet extends HttpServlet {
 
         //添加
         if (users_id != null && pants_name != null && pants_image != null){
-            User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
-            Pant pant = new Pant(pants_name,pants_image,user);
+            Users users = new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
+            Pant pant = new Pant(pants_name,pants_image, users);
             pantService.insert(pant);
             all(response);
         }

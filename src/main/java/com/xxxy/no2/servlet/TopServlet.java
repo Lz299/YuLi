@@ -2,7 +2,7 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Top;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.TopService;
 
 import javax.servlet.*;
@@ -46,9 +46,9 @@ public class TopServlet extends HttpServlet {
 
         //添加
         if (users_id != null && tops_name != null && tops_image != null){
-            User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
-            Top top = new Top(tops_name,tops_image,user);
+            Users users = new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
+            Top top = new Top(tops_name,tops_image, users);
             topService.insert(top);
             all(response);
         }

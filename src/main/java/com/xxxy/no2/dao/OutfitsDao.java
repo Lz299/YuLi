@@ -55,13 +55,13 @@ public class OutfitsDao {
             List<Map<String, Object>> list1 = queryRunner.query(sql, new MapListHandler());
             for (int i = 0; i < list1.size(); i++) {
                 Outfit outfit = CommonUtils.tobean(list1.get(i), Outfit.class);
-                User user = CommonUtils.tobean(list1.get(i), User.class);
+                Users users = CommonUtils.tobean(list1.get(i), Users.class);
                 Top top = CommonUtils.tobean(list1.get(i), Top.class);
                 Pant pant = CommonUtils.tobean(list1.get(i), Pant.class);
                 Shoe shoe = CommonUtils.tobean(list1.get(i), Shoe.class);
                 Hat hat = CommonUtils.tobean(list1.get(i), Hat.class);
                 Ornament ornament = CommonUtils.tobean(list1.get(i), Ornament.class);
-                outfit.setUsers(user);
+                outfit.setUsers(users);
                 outfit.setTops(top);
                 outfit.setPants(pant);
                 outfit.setShoes(shoe);

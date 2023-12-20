@@ -2,7 +2,7 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Posts;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.PostsService;
 
 import javax.servlet.*;
@@ -47,9 +47,9 @@ public class PostsServlet extends HttpServlet {
         PostsService service=new PostsService();
 
         if(users_id!=null&&posts_title!=null&&posts_content!=null){
-            User user=new User();
-            user.setUsers_id(Integer.parseInt(users_id));
-            posts.setUsers(user);
+            Users users =new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
+            posts.setUsers(users);
             posts.setPosts_title(posts_title);
             posts.setPosts_content(posts_content);
            int a= service.add(posts);
@@ -70,9 +70,9 @@ public class PostsServlet extends HttpServlet {
                 out.close();
             }
         }else if (update_posts_id!=null&update_users_id!=null&update_posts_title!=null&update_posts_content!=null){
-            User user=new User();
-            user.setUsers_id(Integer.parseInt(update_users_id));
-            posts.setUsers(user);
+            Users users =new Users();
+            users.setUsers_id(Integer.parseInt(update_users_id));
+            posts.setUsers(users);
             posts.setPosts_title(update_posts_title);
             posts.setPosts_content(update_posts_content);
             int c= service.update(posts);

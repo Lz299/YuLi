@@ -6,12 +6,12 @@ public class Shoe implements Serializable {
     private int shoes_id;
     private String shoes_name;
     private String shoes_image;
-    private User users;
+    private Users users;
 
     public Shoe() {
     }
 
-    public Shoe(String shoes_name, String shoes_image, User users) {
+    public Shoe(String shoes_name, String shoes_image, Users users) {
         this.shoes_name = shoes_name;
         this.shoes_image = shoes_image;
         this.users = users;
@@ -23,7 +23,7 @@ public class Shoe implements Serializable {
         this.shoes_image = shoes_image;
     }
 
-    public Shoe(int shoes_id, String shoes_name, String shoes_image, User users) {
+    public Shoe(int shoes_id, String shoes_name, String shoes_image, Users users) {
         this.shoes_id = shoes_id;
         this.shoes_name = shoes_name;
         this.shoes_image = shoes_image;
@@ -54,11 +54,11 @@ public class Shoe implements Serializable {
         this.shoes_image = shoes_image;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 

@@ -1,8 +1,7 @@
 package com.xxxy.no2.dao;
 
-import com.xxxy.no2.model.Pant;
 import com.xxxy.no2.model.Shoe;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
 import com.xxxy.no2.utils.CommonUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -40,8 +39,8 @@ public class ShoeDao {
             List<Map<String, Object>> list1 = queryRunner.query(sql, new MapListHandler());
             for (int i = 0; i < list1.size(); i++) {
                 Shoe shoe = CommonUtils.tobean(list1.get(i), Shoe.class);
-                User user = CommonUtils.tobean(list1.get(i), User.class);
-                shoe.setUsers(user);
+                Users users = CommonUtils.tobean(list1.get(i), Users.class);
+                shoe.setUsers(users);
                 list.add(shoe);
             }
 

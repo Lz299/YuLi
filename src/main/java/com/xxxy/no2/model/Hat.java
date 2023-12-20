@@ -6,12 +6,12 @@ public class Hat implements Serializable {
     private int hats_id;
     private String hats_name;
     private String hats_image;
-    private User users;
+    private Users users;
 
     public Hat() {
     }
 
-    public Hat(String hats_name, String hats_image, User users) {
+    public Hat(String hats_name, String hats_image, Users users) {
         this.hats_name = hats_name;
         this.hats_image = hats_image;
         this.users = users;
@@ -23,7 +23,7 @@ public class Hat implements Serializable {
         this.hats_image = hats_image;
     }
 
-    public Hat(int hats_id, String hats_name, String hats_image, User users) {
+    public Hat(int hats_id, String hats_name, String hats_image, Users users) {
         this.hats_id = hats_id;
         this.hats_name = hats_name;
         this.hats_image = hats_image;
@@ -54,11 +54,11 @@ public class Hat implements Serializable {
         this.hats_image = hats_image;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 

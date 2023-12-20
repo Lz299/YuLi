@@ -2,12 +2,10 @@ package com.xxxy.no2.dao;
 
 import com.xxxy.no2.model.Like;
 import com.xxxy.no2.model.Posts;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
 import com.xxxy.no2.utils.CommonUtlis;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -27,9 +25,9 @@ public class LikeDao {
            for (Map<String, Object> map : list1) {
                Like like=CommonUtlis.tobean(map,Like.class);
                Posts posts= CommonUtlis.tobean(map,Posts.class);
-               User user=CommonUtlis.tobean(map,User.class);
+               Users users =CommonUtlis.tobean(map, Users.class);
                like.setPost(posts);
-               like.setUser(user);
+               like.setUser(users);
                list.add(like);
            }
 

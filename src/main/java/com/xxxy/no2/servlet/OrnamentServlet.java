@@ -1,10 +1,8 @@
 package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
-import com.xxxy.no2.model.Hat;
 import com.xxxy.no2.model.Ornament;
-import com.xxxy.no2.model.User;
-import com.xxxy.no2.service.HatService;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.OrnamentService;
 
 import javax.servlet.ServletException;
@@ -49,9 +47,9 @@ public class OrnamentServlet extends HttpServlet {
 
         //添加
         if (users_id != null && ornament_name != null && ornament_image != null){
-            User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
-            Ornament ornament = new Ornament(ornament_name,ornament_image,user);
+            Users users = new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
+            Ornament ornament = new Ornament(ornament_name,ornament_image, users);
             ornamentService.insert(ornament);
             all(response);
         }

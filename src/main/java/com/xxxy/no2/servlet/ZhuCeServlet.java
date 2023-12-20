@@ -1,7 +1,7 @@
 package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.UserService;
 
 import javax.servlet.*;
@@ -29,11 +29,11 @@ public class ZhuCeServlet extends HttpServlet {
         String password = request.getParameter("password");
         UserService userService = new UserService();
         if (phone!=null&&username!=null&&password!=null){
-            User user=new User();
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setPhone(phone);
-           int a= userService.add(user);
+            Users users =new Users();
+            users.setUsername(username);
+            users.setPassword(password);
+            users.setPhone(phone);
+           int a= userService.add(users);
            if (a!=0){
                Gson gson=new Gson();
                String json =gson.toJson(a);

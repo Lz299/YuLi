@@ -5,12 +5,12 @@ public class Posts {
     private int posts_id;
     private String posts_title;
     private String posts_content;
-    private User users;
+    private Users users;
 
     public Posts() {
     }
 
-    public Posts(int posts_id, User users, String posts_title, String posts_content) {
+    public Posts(int posts_id, Users users, String posts_title, String posts_content) {
         this.posts_id = posts_id;
         this.users = users;
         this.posts_title = posts_title;
@@ -25,11 +25,11 @@ public class Posts {
         this.posts_id = posts_id;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(User users_id) {
+    public void setUsers(Users users_id) {
         this.users = users_id;
     }
 

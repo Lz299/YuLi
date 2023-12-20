@@ -6,19 +6,19 @@ public class Top implements Serializable {
     private int tops_id;
     private String tops_name;
     private String tops_image;
-    private User users;
+    private Users users;
 
     public Top() {
     }
 
-    public Top(int tops_id, String tops_name, String tops_image, User users) {
+    public Top(int tops_id, String tops_name, String tops_image, Users users) {
         this.tops_id = tops_id;
         this.tops_name = tops_name;
         this.tops_image = tops_image;
         this.users = users;
     }
 
-    public Top(String tops_name, String tops_image, User users) {
+    public Top(String tops_name, String tops_image, Users users) {
         this.tops_name = tops_name;
         this.tops_image = tops_image;
         this.users = users;
@@ -54,11 +54,11 @@ public class Top implements Serializable {
         this.tops_image = tops_image;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 

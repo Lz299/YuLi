@@ -3,7 +3,7 @@ package com.xxxy.no2.servlet;
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Comments;
 import com.xxxy.no2.model.Posts;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.CommentsService;
 
 import javax.servlet.*;
@@ -36,11 +36,11 @@ public class CommentsServlet extends HttpServlet {
         //增
         if (users_id != null && posts_id != null && comments_conntent != null) {
             Comments comments = new Comments();
-            User user = new User();
+            Users users = new Users();
             Posts posts = new Posts();
-            user.setUsers_id(Integer.parseInt(users_id));
+            users.setUsers_id(Integer.parseInt(users_id));
             posts.setPosts_id(Integer.parseInt(posts_id));
-            comments.setUsers(user);
+            comments.setUsers(users);
             comments.setPosts(posts);
             comments.setComments_content(comments_conntent);
             int a=service.addComments(comments);

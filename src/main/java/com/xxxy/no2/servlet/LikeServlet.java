@@ -3,7 +3,7 @@ package com.xxxy.no2.servlet;
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Like;
 import com.xxxy.no2.model.Posts;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.LikeService;
 
 import javax.servlet.*;
@@ -38,11 +38,11 @@ public class LikeServlet extends HttpServlet {
         //add//添加
         if (users_id!=null&&posts_id!=null) {
             Like like = new Like();
-            User user = new User();
-            user.setUsers_id(Integer.parseInt(users_id));
+            Users users = new Users();
+            users.setUsers_id(Integer.parseInt(users_id));
             Posts posts = new Posts();
             posts.setPosts_id(Integer.parseInt(posts_id));
-            like.setUser(user);
+            like.setUser(users);
             like.setPost(posts);
             int a = service.addLike(like);
             Gson gson = new Gson();

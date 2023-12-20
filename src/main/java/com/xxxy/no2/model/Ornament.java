@@ -6,12 +6,12 @@ public class Ornament implements Serializable {
     private int ornament_id;
     private String ornament_name;
     private String ornament_image;
-    private User users;
+    private Users users;
 
     public Ornament() {
     }
 
-    public Ornament(String ornament_name, String ornament_image, User users) {
+    public Ornament(String ornament_name, String ornament_image, Users users) {
         this.ornament_name = ornament_name;
         this.ornament_image = ornament_image;
         this.users = users;
@@ -23,7 +23,7 @@ public class Ornament implements Serializable {
         this.ornament_image = ornament_image;
     }
 
-    public Ornament(int ornament_id, String ornament_name, String ornament_image, User users) {
+    public Ornament(int ornament_id, String ornament_name, String ornament_image, Users users) {
         this.ornament_id = ornament_id;
         this.ornament_name = ornament_name;
         this.ornament_image = ornament_image;
@@ -54,11 +54,11 @@ public class Ornament implements Serializable {
         this.ornament_image = ornament_image;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 }

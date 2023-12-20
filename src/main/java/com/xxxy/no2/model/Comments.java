@@ -3,7 +3,7 @@ package com.xxxy.no2.model;
 public class Comments {
     private int comments_id;
     private String comments_content;
-    private User users;
+    private Users users;
     private Posts posts;
 
     public Comments() {
@@ -25,11 +25,11 @@ public class Comments {
         this.comments_content = comments_content;
     }
 
-    public User getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 

@@ -1,12 +1,9 @@
 package com.xxxy.no2.dao;
 import com.xxxy.no2.model.Top;
-import com.xxxy.no2.model.User;
+import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
 import com.xxxy.no2.utils.CommonUtils;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import java.sql.SQLException;
@@ -41,8 +38,8 @@ public class TopDao {
             List<Map<String, Object>> list1 = queryRunner.query(sql, new MapListHandler());
             for (int i = 0; i < list1.size(); i++) {
                 Top top = CommonUtils.tobean(list1.get(i), Top.class);
-                User user = CommonUtils.tobean(list1.get(i), User.class);
-                top.setUsers(user);
+                Users users = CommonUtils.tobean(list1.get(i), Users.class);
+                top.setUsers(users);
                 list.add(top);
             }
 
