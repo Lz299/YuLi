@@ -24,5 +24,8 @@ public class OrnamentService {
     public int delById(int id){
         return dao.delById(id);
     }
+    public List<Ornament> findById(int id){
+        return dao.findByUsersId(id);
+    }
 
 }

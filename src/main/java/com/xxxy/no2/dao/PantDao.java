@@ -1,6 +1,7 @@
 package com.xxxy.no2.dao;
 
 import com.xxxy.no2.model.Pant;
+import com.xxxy.no2.model.Pant;
 import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
 import com.xxxy.no2.utils.CommonUtils;
@@ -74,6 +75,24 @@ public class PantDao {
             e.printStackTrace();
         }
         return delete;
+    }
+
+    public List<Pant> findByUsersId(int users_id){
+        List<Pant> list = new ArrayList<>();
+        try {
+            String sql = "select * from pants,users  where pants.users_id= users.users_id and pants.users_id=?";
+            List<Map<String, Object>> list1 = queryRunner.query(sql, new MapListHandler(), users_id);
+            for (int i = 0; i < list1.size(); i++) {
+                Pant hat = CommonUtils.tobean(list1.get(i), Pant.class);
+                Users users = CommonUtils.tobean(list1.get(i), Users.class);
+                hat.setUsers(users);
+                list.add(hat);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

@@ -2,6 +2,7 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Ornament;
+import com.xxxy.no2.model.Pant;
 import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.OrnamentService;
 
@@ -39,6 +40,15 @@ public class OrnamentServlet extends HttpServlet {
         String update_ornament_image = request.getParameter("update_ornament_image");
 
 
+        if (users_id!=null&&ornament_name==null&&ornament_image==null){
+            PrintWriter out = response.getWriter();
+            Gson gson = new Gson();
+            List<Ornament> allTop = ornamentService.findById(Integer.parseInt(users_id));
+            String json = gson.toJson(allTop);
+            System.out.println(json);
+            out.write(json);
+            out.close();
+        }
 
         //查询
         if (users_id == null && ornament_name == null && ornament_image == null &&ornament_id == null){

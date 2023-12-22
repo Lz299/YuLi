@@ -76,4 +76,28 @@ public class HatDao {
         return delete;
     }
 
+    public List<Hat> findByUsersId(int users_id){
+        List<Hat> list = new ArrayList<>();
+        try {
+            String sql = "select * from hats ,users  where hats.users_id= users.users_id and hats.users_id=?";
+            List<Map<String, Object>> list1 = queryRunner.query(sql, new MapListHandler(), users_id);
+            for (int i = 0; i < list1.size(); i++) {
+                Hat hat = CommonUtils.tobean(list1.get(i), Hat.class);
+                Users users = CommonUtils.tobean(list1.get(i), Users.class);
+                hat.setUsers(users);
+                list.add(hat);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
+
 }
+
+
+
+

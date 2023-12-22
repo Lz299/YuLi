@@ -38,9 +38,10 @@ public class UserServlet extends HttpServlet {
 
 if (phone!=null&&ayzm==null) {
     int randomNumber = random.nextInt(900000) + 100000;
-    sample.send(phone, String.valueOf(randomNumber));
+    String e=sample.send(phone, String.valueOf(randomNumber));
+
     Gson gson = new Gson();
-    String json = gson.toJson(String.valueOf(randomNumber));
+    String json = gson.toJson(String.valueOf(e));
     System.out.println(json);
     out.write(json);
     out.close();

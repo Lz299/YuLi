@@ -24,5 +24,8 @@ public class HatService {
     public int delById(int id){
         return dao.delById(id);
     }
+    public List<Hat> findById(int id){
+        return dao.findByUsersId(id);
+    }
 
 }

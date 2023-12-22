@@ -48,7 +48,8 @@ public class PostsDao {
     public int delPost(int id){
         int a=0;
         try {
-            a=queryRunner.update("DELETE FROM likes WHERE posts_id = ?",id);
+            queryRunner.update("DELETE FROM comments WHERE posts_id = ?",id);
+            queryRunner.update("DELETE FROM likes WHERE posts_id = ?",id);
             a=queryRunner.update("DELETE FROM posts WHERE posts_id = ?",id);
         }catch (SQLException e) {
             e.printStackTrace();
@@ -69,7 +70,7 @@ public class PostsDao {
     public List<Posts> findPostById(int userid) {
         List<Posts> list = new ArrayList<>();
         try {
-            List<Map<String, Object>> list1 = queryRunner.query("SELECT * FROM posts,users where posts.users_id=users.users_id WHERE users_id = ?", new MapListHandler(), userid);
+            List<Map<String, Object>> list1 = queryRunner.query("SELECT * FROM posts,users where posts.users_id=users.users_id and posts.users_id = ?", new MapListHandler(), userid);
             for (int i = 0; i < list1.size(); i++) {
                 Posts posts = CommonUtlis.tobean(list1.get(i), Posts.class);
                 Users users = CommonUtlis.tobean(list1.get(i), Users.class);

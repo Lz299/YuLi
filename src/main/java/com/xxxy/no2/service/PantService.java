@@ -25,5 +25,9 @@ public class PantService {
     public int delById(int id){
         return dao.delById(id);
     }
+    public List<Pant> findByid(int id){
+        return dao.findByUsersId(id);
+    }
+
 
 }

@@ -4,7 +4,6 @@ import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-
 import java.sql.SQLException;
 
 public class UserDao {
@@ -41,7 +40,6 @@ public class UserDao {
             e.printStackTrace();
         }
         return users;
-
     }
 
     public int  updateUser_img(Users users){

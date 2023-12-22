@@ -28,16 +28,24 @@ public class TopServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         TopService topService = new TopService();
         //添加
-        String users_id =  request.getParameter("users_id");
-        String tops_name =  request.getParameter("tops_name");
-        String tops_image =  request.getParameter("tops_image");
+        String users_id = request.getParameter("users_id");
+        String tops_name = request.getParameter("tops_name");
+        String tops_image = request.getParameter("tops_image");
         //修改获取字段
-        String tops_id =  request.getParameter("tops_id");
+        String tops_id = request.getParameter("tops_id");
         System.out.println(tops_id);
-        String update_tops_name =  request.getParameter("update_tops_name");
-        String updata_tops_image =  request.getParameter("updata_tops_image");
+        String update_tops_name = request.getParameter("update_tops_name");
+        String updata_tops_image = request.getParameter("updata_tops_image");
 
-
+    if (users_id!=null&&tops_name==null&&tops_image==null){
+        PrintWriter out = response.getWriter();
+        Gson gson = new Gson();
+        List<Top> allTop = topService.findidBy(Integer.parseInt(users_id));
+        String json = gson.toJson(allTop);
+        System.out.println(json);
+        out.write(json);
+        out.close();
+    }
 
         //查询
         if (users_id == null && tops_name == null && tops_image == null && tops_id == null){

@@ -1,8 +1,6 @@
 package com.xxxy.no2.service;
 
-import com.xxxy.no2.dao.PantDao;
 import com.xxxy.no2.dao.ShoeDao;
-import com.xxxy.no2.model.Pant;
 import com.xxxy.no2.model.Shoe;
 
 import java.util.List;
@@ -23,6 +21,9 @@ public class ShoeService {
 
     public int delById(int id){
         return dao.delById(id);
+    }
+    public List<Shoe> findById(int id){
+        return dao.findByUsersId(id);
     }
 
 }

@@ -2,6 +2,7 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Hat;
+import com.xxxy.no2.model.Ornament;
 import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.HatService;
 
@@ -37,6 +38,18 @@ public class HatServlet extends HttpServlet {
         String hats_id = request.getParameter("hats_id");
         String update_hats_name = request.getParameter("update_hats_name");
         String update_hats_image = request.getParameter("update_hats_image");
+
+        if (users_id!=null&&hats_name==null&&hats_image==null){
+            PrintWriter out = response.getWriter();
+            Gson gson = new Gson();
+            List<Hat> allTop = hatService.findById(Integer.parseInt(users_id));
+            String json = gson.toJson(allTop);
+            System.out.println(json);
+            out.write(json);
+            out.close();
+        }
+
+
 
         //查询
         if (users_id == null && hats_name == null && hats_image == null &&hats_id == null){

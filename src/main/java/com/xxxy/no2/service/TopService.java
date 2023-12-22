@@ -23,6 +23,9 @@ public class TopService {
     public int delTopById(int id){
         return topDao.delTopById(id);
     }
+    public List<Top>  findidBy(int id){
+        return topDao.findByUsersId(id);
+    }
 
 
 }

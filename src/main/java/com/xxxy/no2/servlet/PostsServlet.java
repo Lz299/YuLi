@@ -46,6 +46,11 @@ public class PostsServlet extends HttpServlet {
         Posts posts=new Posts();
         PostsService service=new PostsService();
 
+
+
+
+
+
         if(users_id!=null&&posts_title!=null&&posts_content!=null){
             Users users =new Users();
             users.setUsers_id(Integer.parseInt(users_id));

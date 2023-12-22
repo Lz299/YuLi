@@ -2,6 +2,7 @@ package com.xxxy.no2.servlet;
 
 import com.google.gson.Gson;
 import com.xxxy.no2.model.Shoe;
+import com.xxxy.no2.model.Top;
 import com.xxxy.no2.model.Users;
 import com.xxxy.no2.service.ShoeService;
 
@@ -38,7 +39,15 @@ public class ShoeServlet extends HttpServlet {
         String update_shoes_name = request.getParameter("update_shoes_name");
         String update_shoes_image = request.getParameter("update_shoes_image");
 
-
+        if (users_id!=null&&shoes_name==null&&shoes_image==null){
+            PrintWriter out = response.getWriter();
+            Gson gson = new Gson();
+            List<Shoe> allTop = shoeService.findById(Integer.parseInt(users_id));
+            String json = gson.toJson(allTop);
+            System.out.println(json);
+            out.write(json);
+            out.close();
+        }
 
         //查询
         if (users_id == null && shoes_name == null && shoes_image == null &&shoes_id == null){

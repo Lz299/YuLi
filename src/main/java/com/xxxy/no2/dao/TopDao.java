@@ -1,4 +1,5 @@
 package com.xxxy.no2.dao;
+import com.xxxy.no2.model.Hat;
 import com.xxxy.no2.model.Top;
 import com.xxxy.no2.model.Users;
 import com.xxxy.no2.utils.C3P0Utils;
@@ -75,6 +76,23 @@ public class TopDao {
             e.printStackTrace();
         }
         return delete;
+    }
+    public List<Top> findByUsersId(int users_id){
+        List<Top> list = new ArrayList<>();
+        try {
+            String sql = "select * from tops ,users  where tops.users_id= users.users_id and tops.users_id=?";
+            List<Map<String, Object>> list1 = queryRunner.query(sql, new MapListHandler(), users_id);
+            for (int i = 0; i < list1.size(); i++) {
+               Top top = CommonUtils.tobean(list1.get(i), Top.class);
+                Users users = CommonUtils.tobean(list1.get(i), Users.class);
+                top.setUsers(users);
+                list.add(top);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 
